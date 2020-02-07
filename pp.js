@@ -64,7 +64,6 @@ document.addEventListener("keyup", function(e){
         speedOfPaddle2 = 0;
     }
 })
-
 // boundaries and paddle motion
 window.setInterval(function show() {
     positionOfPaddle1 += speedOfPaddle1;
@@ -108,6 +107,14 @@ window.setInterval(function show() {
             startBall();
         }
     }
+    
+    if (score1 >= 10) {
+        alert("Player 2 has won!!!");
+        reset();
+    }else if (score2 >= 10){
+        alert("Player 1 has won!!!");
+        reset();
+    }
 
 
     document.getElementById("paddle1").style.top = positionOfPaddle1 + "px";
@@ -118,4 +125,12 @@ window.setInterval(function show() {
 
     document.getElementById("score1").innerHTML = score2.toString()
     document.getElementById("score2").innerHTML = score1.toString()
+
+
 }, 1000/60)
+
+document.addEventListener("DOMContentLoaded", function(){
+    document.querySelector("body").addEventListener("click", function(){
+        document.querySelector("#startMenu").classList.add("hideMe")
+    })
+})
